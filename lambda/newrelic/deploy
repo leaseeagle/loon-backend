@@ -1,0 +1,5 @@
+#!/bin/bash
+rm deploy.zip
+zip deploy.zip libs/* main.py
+aws lambda update-function-code --function-name loon-newrelic --zip-file fileb://deploy.zip --region ap-southeast-2
+
