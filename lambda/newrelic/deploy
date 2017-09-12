@@ -1,5 +1,9 @@
 #!/bin/bash
 rm deploy.zip
-zip deploy.zip libs/* main.py
+cd libs
+cp ../main.py main.py
+zip ../deploy.zip * -r main.py
+rm main.py
+cd ..
 aws lambda update-function-code --function-name loon-newrelic --zip-file fileb://deploy.zip --region ap-southeast-2
 
